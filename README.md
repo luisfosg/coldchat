@@ -13,7 +13,7 @@ Con esto creara la carpeta node_modules con los componentes necesarios para corr
 ```javascript
 npm run dev
 ```
-Se ejecutara en el LocalHost 3000
+Se ejecutara en el http://localhost:3000
 
 >*Este Codigo Fue una adaptación de* *[FAZT][1]*
 
