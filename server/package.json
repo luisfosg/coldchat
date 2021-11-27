@@ -1,5 +1,8 @@
 {
   "name": "server-client",
+  "version": "1.0.0",
+  "private": "true",
+  "license": "ISC",
   "scripts": {
     "dev": "nodemon --exec npx babel-node src/index.js"
   },

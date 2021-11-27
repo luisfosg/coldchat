@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'next/core-web-vitals',
     'standard'
   ],
   parserOptions: {
@@ -18,6 +19,5 @@ module.exports = {
   plugins: [
     'react'
   ],
-  rules: {
-  }
+  rules: {}
 }
