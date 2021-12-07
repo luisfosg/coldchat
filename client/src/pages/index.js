@@ -1,6 +1,12 @@
 import Head from 'next/head'
 
+import useTheme from 'hooks/useTheme'
+
+import { themeLight } from 'styles/themes'
+
 export default function Home () {
+  useTheme(themeLight)
+
   return (
     <div>
       <Head>

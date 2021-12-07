@@ -1,7 +1,4 @@
-@value colors: "styles/colors.module.css";
 @value breakpoints: "styles/breakpoints.module.css";
-
-@value backgroundColor, textColor from colors;
 @value ml from breakpoints;
 
 .app {
@@ -16,8 +13,8 @@
 }
 
 .main {
-  background-color: backgroundColor;
-  color: textColor;
+  background-color: var(--background-main);
+  color: var(--text-color);
 
   overflow-y: auto;
   border-radius: 1rem;
