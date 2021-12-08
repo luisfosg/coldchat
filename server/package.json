@@ -1,7 +1,7 @@
 {
   "name": "coldchat-server",
   "version": "1.0.0",
-  "private": "true",
+  "private": false,
   "license": "ISC",
   "scripts": {
     "dev": "nodemon --exec npx babel-node src/index.js"
