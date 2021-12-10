@@ -1,5 +1,5 @@
 const disconnect = ({ socket }) => {
-  console.log('user disconnected')
+  console.log(`${socket.id}: disconnected`)
 
   socket.disconnect()
 }

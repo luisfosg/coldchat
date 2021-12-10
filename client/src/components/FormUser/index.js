@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import Router from 'next/router'
 import clsx from 'clsx'
+
+import { userName } from 'services/userName'
 
 import Avatar from 'components/Avatar'
 
@@ -14,7 +17,13 @@ const FormUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(user)
+    if (user === '') return
+
+    userName(user, (name) => {
+      Router.push('/chat')
+    })
+
+    setUser('')
   }
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)

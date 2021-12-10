@@ -4,7 +4,7 @@ import { join } from 'path'
 import { io } from '../io'
 
 io.on('connection', async (socket) => {
-  console.log('a user connected')
+  console.log(`${socket.id}: New connection`)
 
   for (const eventFile of readdirSync(join(__dirname, '../on'))) {
     if (!eventFile.endsWith('.js')) continue
@@ -12,8 +12,6 @@ io.on('connection', async (socket) => {
     const eventName = eventFile.replace('.js', '')
     const event = await import(`../on/${eventFile}`)
 
-    socket.on(eventName, (...args) => event.default({
-      io, socket, ...args
-    }))
+    socket.on(eventName, (data, cb) => event.default({ io, socket, data, cb }))
   }
 })

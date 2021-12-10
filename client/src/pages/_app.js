@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-/* import 'services/io' */
-
 import AppLayout from 'layouts/app-layout'
 
 import 'normalize.css'
