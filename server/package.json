@@ -9,6 +9,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "@babel/runtime": "7.16.3",
     "express": "4.17.1",
     "socket.io": "4.4.0"
   },
