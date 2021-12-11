@@ -2,13 +2,16 @@ import { useState } from 'react'
 import Router from 'next/router'
 import clsx from 'clsx'
 
-import { userName } from 'services/userName'
+import useSocket from 'hooks/useSocket'
+
+import { socketUserName } from 'services/sockets'
 
 import Avatar from 'components/Avatar'
 
 import styles from './FormUser.module.css'
 
-const FormUser = () => {
+const FormUser = ({ setUserName }) => {
+  const socket = useSocket()
   const [user, setUser] = useState('')
 
   const handleUser = (e) => {
@@ -19,11 +22,10 @@ const FormUser = () => {
     e.preventDefault()
     if (user === '') return
 
-    userName(user, (name) => {
+    socketUserName(socket, { userName: user }, (name) => {
+      setUserName(name)
       Router.push('/chat')
     })
-
-    setUser('')
   }
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)
