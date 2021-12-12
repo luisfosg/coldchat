@@ -10,7 +10,7 @@ import Avatar from 'components/Avatar'
 import styles from './FormUser.module.css'
 
 const FormUser = () => {
-  const { socket, setName } = useContext(SocketContext)
+  const { socket, setNickname } = useContext(SocketContext)
   const [user, setUser] = useState('')
   const elementRef = useRef(null)
 
@@ -22,10 +22,10 @@ const FormUser = () => {
     e.preventDefault()
     if (user === '') return
 
-    socketUserName(socket, { userName: user }, (name) => {
+    socketUserName(socket, { nickname: user }, (name) => {
       if (!name) return elementRef.current.showModal()
 
-      setName(name)
+      setNickname(name)
       Router.push('/chat')
     })
   }

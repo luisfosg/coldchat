@@ -11,15 +11,15 @@ export const SocketContextProvider = ({ children }) => {
   const socket = useSocket()
 
   useEffect(() => {
-    if (socket) socket.nameUser = ''
+    if (socket) socket.nickname = ''
   }, [socket])
 
-  const setName = name => {
-    socket.nameUser = name
+  const setNickname = name => {
+    socket.nickname = name
   }
 
   return (
-    <Context.Provider value={{ socket, setName }}>
+    <Context.Provider value={{ socket, setNickname }}>
       {children}
     </Context.Provider>
   )

@@ -6,11 +6,11 @@ import FormUser from 'components/FormUser'
 
 export default function Home () {
   const { socket } = useContext(SocketContext)
-  const { nameUser } = socket || ''
+  const { nickname } = socket || ''
 
   useEffect(() => {
-    if (nameUser || nameUser !== '') Router.push('/chat')
-  }, [nameUser])
+    if (nickname || nickname !== '') Router.push('/chat')
+  }, [nickname])
 
   return (
     <>

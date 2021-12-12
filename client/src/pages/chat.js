@@ -5,15 +5,15 @@ import SocketContext from 'context/SocketContext'
 
 const Chat = () => {
   const { socket } = useContext(SocketContext)
-  const { nameUser } = socket || ''
+  const { nickname } = socket || ''
 
   useEffect(() => {
-    if (!nameUser || nameUser === '') Router.push('/')
-  }, [nameUser])
+    if (!nickname || nickname === '') Router.push('/')
+  }, [nickname])
 
   return (
     <div>
-      { nameUser }
+      { nickname }
     </div>
   )
 }
