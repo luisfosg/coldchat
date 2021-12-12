@@ -1,21 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import Router from 'next/router'
 
-import useLocalStorage from 'hooks/useLocalStorage'
-
+import SocketContext from 'context/SocketContext'
 import FormUser from 'components/FormUser'
 
 export default function Home () {
-  const [userName, setUserName] = useLocalStorage('userName')
+  const { socket } = useContext(SocketContext)
+  const { nameUser } = socket || ''
 
   useEffect(() => {
-    if (userName && userName !== '') Router.push('/chat')
-  }, [userName])
+    if (nameUser || nameUser !== '') Router.push('/chat')
+  }, [nameUser])
 
   return (
     <>
       <h1>Bienvenido a ColdChat!</h1>
-      <FormUser setUserName={setUserName} />
+      <FormUser/>
     </>
   )
 }

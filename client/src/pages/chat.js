@@ -1,17 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import Router from 'next/router'
-import useLocalStorage from 'hooks/useLocalStorage'
+
+import SocketContext from 'context/SocketContext'
 
 const Chat = () => {
-  const [userName] = useLocalStorage('userName')
+  const { socket } = useContext(SocketContext)
+  const { nameUser } = socket || ''
 
   useEffect(() => {
-    if (!userName || userName === '') Router.push('/')
-  }, [userName])
+    if (!nameUser || nameUser === '') Router.push('/')
+  }, [nameUser])
 
   return (
     <div>
-      { userName }
+      { nameUser }
     </div>
   )
 }

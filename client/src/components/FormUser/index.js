@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Router from 'next/router'
 import clsx from 'clsx'
 
-import useSocket from 'hooks/useSocket'
-
+import SocketContext from 'context/SocketContext'
 import { socketUserName } from 'services/sockets'
 
 import Avatar from 'components/Avatar'
 
 import styles from './FormUser.module.css'
 
-const FormUser = ({ setUserName }) => {
-  const socket = useSocket()
+const FormUser = () => {
+  const { socket, setName } = useContext(SocketContext)
   const [user, setUser] = useState('')
 
   const handleUser = (e) => {
@@ -23,7 +22,7 @@ const FormUser = ({ setUserName }) => {
     if (user === '') return
 
     socketUserName(socket, { userName: user }, (name) => {
-      setUserName(name)
+      setName(name)
       Router.push('/chat')
     })
   }
