@@ -17,7 +17,6 @@
 .main {
   color: var(--text-color);
 
-  overflow-y: auto;
   border-radius: 1rem;
 
   display: flex;
