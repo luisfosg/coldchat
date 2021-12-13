@@ -44,7 +44,9 @@ const FormUser = () => {
         </dialog>
       </section>
       <div className={styles.container}>
-        <Avatar user={user}/>
+        <div className={styles.containerAvatar}>
+          <Avatar user={user}/>
+        </div>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className="nes-field">
             <label htmlFor="name_field">Coloca tu Nick</label>

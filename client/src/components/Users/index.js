@@ -4,6 +4,8 @@ import SocketContext from 'context/SocketContext'
 
 import User from 'components/User'
 
+import styles from './Users.module.css'
+
 const Users = () => {
   const { socket } = useContext(SocketContext)
   const [users, setUsers] = useState([])
@@ -28,7 +30,7 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <div className={styles.containerUsers}>
       {
         users.map((user) => (
           <User key={user} user={user} />
