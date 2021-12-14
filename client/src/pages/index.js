@@ -9,7 +9,7 @@ export default function Home () {
   const { nickname } = socket || ''
 
   useEffect(() => {
-    if (nickname || nickname !== '') Router.push('/chat')
+    if (nickname && nickname !== '') Router.push('/chat')
   }, [nickname])
 
   return (

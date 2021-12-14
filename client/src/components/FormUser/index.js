@@ -32,6 +32,7 @@ const FormUser = () => {
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)
   const styleInput = clsx('nes-input')
+  const isButtonDisabled = user === ''
 
   return (
     <>
@@ -50,13 +51,13 @@ const FormUser = () => {
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className="nes-field">
             <label htmlFor="name_field">Coloca tu Nick</label>
-            <input type="text" id="name_field" className={styleInput}
+            <input type="text" id="name_field" autoFocus className={styleInput}
               placeholder="Mi Nick"
               value={user}
               onChange={handleUser}
             />
           </div>
-          <button type="submit" className={ styleButton }>Entrar</button>
+          <button type="submit" disabled={isButtonDisabled} className={ styleButton }>Entrar</button>
         </form>
       </div>
     </>

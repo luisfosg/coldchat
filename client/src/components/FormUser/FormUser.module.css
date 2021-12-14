@@ -1,7 +1,3 @@
-.buttonForm {
-  margin-top: 1rem;
-}
-
 .container {
   margin-top: 2rem;
   display: flex;
@@ -17,4 +13,14 @@
 .containerAvatar {
   width: 10rem;
   height: 10rem;
+}
+
+.buttonForm {
+  margin-top: 1rem;
+}
+
+.buttonForm[disabled] {
+  opacity: .8;
+  background-color: rgb(83, 111, 201);
+  pointer-events: none;
 }
