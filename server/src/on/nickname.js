@@ -7,16 +7,21 @@ import emitNicknames from '../emit/nicknames.js'
 const newUser = ({ io, socket, nickname, cb }) => {
   socket.key = nanoid()
   socket.nickname = nickname.trim()
-  nicknames[socket.nickname] = [socket]
+  socket.connectionNumber = 1
 
+  nicknames[socket.nickname] = [socket]
   cb({ name: nickname, newKey: socket.key })
   emitNicknames(io)
 }
 
-const oldUser = ({ io, socket, nickname, key, cb }) => {
+const oldUser = ({ socket, nickname, key, cb }) => {
   if (nicknames[nickname][0].key !== key) return cb()
+  const lastSocket = nicknames[nickname][nicknames[nickname].length - 1]
 
-  socket.nickname = nickname.trim()
+  socket.key = lastSocket.key
+  socket.nickname = lastSocket.nickname
+  socket.connectionNumber = lastSocket.connectionNumber + 1
+
   nicknames[nickname] = [...nicknames[nickname], socket]
   cb({ name: nickname })
 }
@@ -26,7 +31,7 @@ const Nickname = ({ io, socket, data, cb }) => {
   if (typeof nickname !== 'string' || nickname === '') return cb()
 
   nickname in nicknames
-    ? oldUser({ io, socket, nickname, key, cb })
+    ? oldUser({ socket, nickname, key, cb })
     : newUser({ io, socket, nickname, cb })
 }
 
