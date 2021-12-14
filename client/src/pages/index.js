@@ -5,8 +5,7 @@ import SocketContext from 'context/SocketContext'
 import FormUser from 'components/FormUser'
 
 export default function Home () {
-  const { socket } = useContext(SocketContext)
-  const { nickname } = socket || ''
+  const { nickname } = useContext(SocketContext)
 
   useEffect(() => {
     if (nickname && nickname !== '') Router.push('/chat')

@@ -8,8 +8,7 @@ import Users from 'components/Users'
 import styles from 'styles/chat.module.css'
 
 const Chat = () => {
-  const { socket } = useContext(SocketContext)
-  const { nickname } = socket || ''
+  const { nickname } = useContext(SocketContext)
 
   useEffect(() => {
     if (!nickname || nickname === '') Router.push('/')

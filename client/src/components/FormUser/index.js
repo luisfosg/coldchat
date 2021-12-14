@@ -1,16 +1,14 @@
 import { useState, useContext, useRef } from 'react'
-import Router from 'next/router'
 import clsx from 'clsx'
 
 import SocketContext from 'context/SocketContext'
-import { socketUserName } from 'services/sockets'
 
 import Avatar from 'components/Avatar'
 
 import styles from './FormUser.module.css'
 
 const FormUser = () => {
-  const { socket, setNickname } = useContext(SocketContext)
+  const { login } = useContext(SocketContext)
   const [user, setUser] = useState('')
   const elementRef = useRef(null)
 
@@ -21,13 +19,7 @@ const FormUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (user === '') return
-
-    socketUserName(socket, { nickname: user }, (name) => {
-      if (!name) return elementRef.current.showModal()
-
-      setNickname(name)
-      Router.push('/chat')
-    })
+    login(user, elementRef)
   }
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)
@@ -39,7 +31,7 @@ const FormUser = () => {
       <section>
         <dialog className="nes-dialog is-rounded is-error" id="dialog-rounded" ref={elementRef}>
           <form method="dialog">
-            <p className="title">El Usuario ya Existe!</p>
+            <p className="title">El Usuario ya esta conectado!</p>
             <button className="nes-btn is-error">OK</button>
           </form>
         </dialog>
