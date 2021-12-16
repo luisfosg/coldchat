@@ -6,8 +6,6 @@ import emitNicknames from '../emit/nicknames.js'
 const disconnect = ({ io, socket }) => {
   const { cyan, green } = colors
 
-  if (!socket.nickname || !nicknames[socket.nickname]) return console.log(cyan(`${socket.id}`), green('=>'), 'disconnected')
-
   nicknames[socket.nickname].forEach((socketId, value) => {
     if (socketId.id === socket.id) {
       nicknames[socket.nickname].splice(value, 1)
@@ -15,7 +13,7 @@ const disconnect = ({ io, socket }) => {
     }
   })
 
-  console.log(cyan(`${socket.nickname}`), green('=>'), 'disconnected')
+  console.log(cyan(`${socket.nickname}`), green('=>'), 'logout')
   emitNicknames(io)
 }
 

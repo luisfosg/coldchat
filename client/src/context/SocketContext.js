@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useEffect } from 'react'
+import { useState, createContext, useEffect } from 'react'
 import Router from 'next/router'
 
 import { socketUserName } from 'services/sockets'
@@ -14,22 +14,24 @@ const Context = createContext({
 
 export const SocketContextProvider = ({ children }) => {
   const socket = useSocket()
+  const [nickname, setNickname] = useState('')
 
-  const [nickname, setNickname] = useLocalStorage('username')
+  const [nicknameStorage, setNicknameStorage] = useLocalStorage('username')
   const [key, setKey] = useLocalStorage('key')
 
   useEffect(() => {
     if (!socket) return
-    if (!nickname || nickname === '') return
+    if (!nicknameStorage || nicknameStorage === '') return
 
-    socketUserName(socket, { nickname, key }, ({ name, newKey } = {}) => {
+    socketUserName(socket, { nickname: nicknameStorage, key }, ({ name, newKey } = {}) => {
       if (!name) {
-        setNickname('')
+        setNicknameStorage('')
         setKey('')
         return Router.push('/')
       }
 
       if (newKey) setKey(newKey)
+      setNickname(name)
       Router.push('/chat')
     })
   }, [socket])
@@ -39,14 +41,23 @@ export const SocketContextProvider = ({ children }) => {
       if (!name) return elementRef.current.showModal()
 
       setNickname(name)
+      setNicknameStorage(name)
       setKey(newKey || '')
 
       Router.push('/chat')
     })
   }
 
+  const logout = () => {
+    setNickname('')
+    setNicknameStorage('')
+    setKey('')
+
+    socket.emit('logout')
+  }
+
   return (
-    <Context.Provider value={{ socket, nickname, setNickname, login }}>
+    <Context.Provider value={{ socket, nickname, login, logout }}>
       {children}
     </Context.Provider>
   )
