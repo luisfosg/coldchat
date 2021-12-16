@@ -13,6 +13,8 @@ const Context = createContext({
 })
 
 export const SocketContextProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true)
+
   const socket = useSocket()
   const [nickname, setNickname] = useState('')
 
@@ -21,9 +23,11 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!socket) return
-    if (!nicknameStorage || nicknameStorage === '') return
+    if (!nicknameStorage || nicknameStorage === '') return setLoading(false)
 
     socketUserName(socket, { nickname: nicknameStorage, key }, ({ name, newKey } = {}) => {
+      setLoading(false)
+
       if (!name) {
         setNicknameStorage('')
         setKey('')
@@ -57,7 +61,7 @@ export const SocketContextProvider = ({ children }) => {
   }
 
   return (
-    <Context.Provider value={{ socket, nickname, login, logout }}>
+    <Context.Provider value={{ socket, nickname, login, logout, loading }}>
       {children}
     </Context.Provider>
   )

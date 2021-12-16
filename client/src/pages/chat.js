@@ -8,12 +8,13 @@ import Users from 'components/Users'
 import styles from 'styles/chat.module.css'
 
 const Chat = () => {
-  const { nickname } = useContext(SocketContext)
+  const { nickname, loading } = useContext(SocketContext)
 
   useEffect(() => {
     if (!nickname || nickname === '') Router.push('/')
   }, [nickname])
 
+  if (loading || !nickname || nickname === '') return <div></div>
   return (
     <section className={styles.main}>
       <div className={styles.containerUsers} >
