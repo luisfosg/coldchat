@@ -3,10 +3,9 @@ import Router from 'next/router'
 
 import SocketContext from 'context/SocketContext'
 
-import Users from 'components/Users'
+import Main from 'components/Main'
 
 import styles from 'styles/chat.module.css'
-import Profile from 'components/Profile'
 
 const Chat = () => {
   const { nickname, loading } = useContext(SocketContext)
@@ -18,15 +17,12 @@ const Chat = () => {
   if (loading || !nickname || nickname === '') return <div></div>
   return (
     <section className={styles.wrapper}>
-      <div className={styles.headerContainer}>
-        <div className={styles.profileContainer}>
-          <Profile />
-        </div>
-      </div>
-      <div className={styles.main}>
-        <section className={styles.containerUsers}>
-          <Users />
-        </section>
+      <Main />
+      <div className={styles.column2}>
+        <header className={styles.header}>
+          <h1>Chat</h1>
+        </header>
+        <section className={styles.chat}></section>
       </div>
     </section>
   )
