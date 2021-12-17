@@ -7,7 +7,7 @@ import styles from './Users.module.css'
 const Users = () => {
   const { users } = useUsers()
 
-  if (users.length === 0) return <div>No hay ningún Usuario Conectado</div>
+  if (users.length === 0) return <div className={styles.noUsers}>No hay ningún Usuario Conectado</div>
 
   return (
     <div className={styles.containerUsers}>

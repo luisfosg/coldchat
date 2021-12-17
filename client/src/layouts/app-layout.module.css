@@ -9,7 +9,6 @@
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   background-color: var(--background-main);
-  padding: 2rem;
 
   text-align: center;
 }
@@ -31,6 +30,7 @@
 @media (min-width: ml) {
   .app {
     margin: 2rem auto;
+
     width: 80%;
     height: 90vh;
   }
