@@ -4,6 +4,7 @@ import Router from 'next/router'
 import SocketContext from 'context/SocketContext'
 
 import Main from 'components/Main'
+import ChatComponent from 'components/Chat'
 
 import styles from 'styles/chat.module.css'
 
@@ -22,7 +23,9 @@ const Chat = () => {
         <header className={styles.header}>
           <h1>Chat</h1>
         </header>
-        <section className={styles.chat}></section>
+        <section className={styles.chat}>
+          <ChatComponent />
+        </section>
       </div>
     </section>
   )

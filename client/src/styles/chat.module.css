@@ -38,8 +38,6 @@
 .chat {
   width: 100%;
   height: calc(100% - 4rem);
-
-  background-color: rgb(148, 148, 194, 0.1);
 }
 
 @media (min-width: m) {
