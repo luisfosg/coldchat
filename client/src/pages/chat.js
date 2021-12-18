@@ -5,6 +5,7 @@ import SocketContext from 'context/SocketContext'
 
 import Main from 'components/Main'
 import ChatComponent from 'components/Chat'
+import Loading from 'components/Loading'
 
 import styles from 'styles/chat.module.css'
 
@@ -15,13 +16,13 @@ const Chat = () => {
     if (!nickname || nickname === '') Router.push('/')
   }, [nickname])
 
-  if (loading || !nickname || nickname === '') return <div></div>
+  if (loading || !nickname || nickname === '') return <Loading />
   return (
     <section className={styles.wrapper}>
       <Main />
       <div className={styles.column2}>
         <header className={styles.header}>
-          <h1>Chat</h1>
+          <h1 className='nes-text is-primary'>Chat</h1>
         </header>
         <section className={styles.chat}>
           <ChatComponent />

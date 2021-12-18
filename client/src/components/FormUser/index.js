@@ -31,7 +31,7 @@ const FormUser = () => {
       <section>
         <dialog className="nes-dialog is-rounded is-error" id="dialog-rounded" ref={elementRef}>
           <form method="dialog">
-            <p className="title">El Usuario ya esta conectado!</p>
+            <p className="title nes-text is-error">El Usuario ya esta conectado!</p>
             <button className="nes-btn is-error">OK</button>
           </form>
         </dialog>

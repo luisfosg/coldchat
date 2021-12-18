@@ -23,3 +23,7 @@ body {
   background: var(--primary);
   border-radius: 9999px;
 }
+
+.nes-balloon {
+  border-image-repeat: inherit;
+}
