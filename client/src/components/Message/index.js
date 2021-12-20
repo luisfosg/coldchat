@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-const Message = ({ isRight = false }) => {
+const Message = ({ msg, isRight = false }) => {
   const sectionMessage = clsx('message', {
     '-left': !isRight,
     '-right': isRight
@@ -14,7 +14,7 @@ const Message = ({ isRight = false }) => {
   return (
     <section className={ sectionMessage }>
       <div className={ bodyMessage }>
-        <p>Good morning. Thou hast had a good night&apos;s</p>
+        <p>{ msg }</p>
       </div>
     </section>
   )

@@ -1,27 +1,35 @@
+import { useRef, useEffect } from 'react'
+import useMessages from 'hooks/useMessages'
+
 import FormMessage from 'components/FormMessage'
 import Message from 'components/Message'
 
 import styles from './Chat.module.css'
 
 const Chat = () => {
+  const scrollElement = useRef(null)
+  const { messages, sendMessage } = useMessages()
+
+  useEffect(() => {
+    if (scrollElement.current) {
+      scrollElement.current.scrollTop = scrollElement.current.scrollHeight
+    }
+  }, [messages, scrollElement])
+
   return (
     <div className={styles.chatContainer}>
-      <div className={styles['messages-container']}>
+      <div className={styles['messages-container']} ref={scrollElement} >
         <section className="message-list">
 
-          <Message isRight />
-          <Message />
-          <Message isRight />
-          <Message isRight />
-          <Message />
-          <Message />
-          <Message isRight />
-          <Message />
-          <Message isRight/>
+          {
+            messages.map((msg, index) => (
+              <Message key={index} msg={msg} />
+            ))
+          }
 
         </section>
       </div>
-      <FormMessage />
+      <FormMessage sendMessage={sendMessage} />
     </div>
   )
 }
