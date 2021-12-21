@@ -1,4 +1,5 @@
 import { useEffect, useContext } from 'react'
+import Head from 'next/head'
 import Router from 'next/router'
 
 import SocketContext from 'context/SocketContext'
@@ -18,17 +19,22 @@ const Chat = () => {
 
   if (loading || !nickname || nickname === '') return <Loading />
   return (
-    <section className={styles.wrapper}>
-      <Main />
-      <div className={styles.column2}>
-        <header className={styles.header}>
-          <h1 className='nes-text is-primary'>Chat</h1>
-        </header>
-        <section className={styles.chat}>
-          <ChatComponent />
-        </section>
-      </div>
-    </section>
+    <>
+      <Head>
+        <title>Cold Chat | { nickname }</title>
+      </Head>
+      <section className={styles.wrapper}>
+        <Main />
+        <div className={styles.column2}>
+          <header className={styles.header}>
+            <h1 className='nes-text is-primary'>Chat</h1>
+          </header>
+          <section className={styles.chat}>
+            <ChatComponent />
+          </section>
+        </div>
+      </section>
+    </>
   )
 }
 
