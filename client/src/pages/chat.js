@@ -27,7 +27,7 @@ const Chat = () => {
         <Main />
         <div className={styles.column2}>
           <header className={styles.header}>
-            <h1 className='nes-text is-primary'>Chat</h1>
+            <h1>Chat</h1>
           </header>
           <section className={styles.chat}>
             <ChatComponent />

@@ -1,3 +1,6 @@
+@value breakpoints: "styles/breakpoints.module.css";
+@value m from breakpoints;
+
 .containerAvatar {
   width: 3rem;
   height: 3rem;
@@ -13,4 +16,11 @@
   align-items: center;
 
   gap: 10px;
+  background-color: rgb(199, 218, 212);
+}
+
+@media (min-width: m) {
+  .containerProfile {
+    border-radius: 1rem 0 0 0;
+  }
 }

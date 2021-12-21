@@ -15,6 +15,8 @@ const FormMessage = ({ sendMessage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (message === '') return
     sendMessage({ msg: message })
     setMessage('')
   }

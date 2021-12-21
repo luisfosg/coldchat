@@ -1,5 +1,8 @@
 .containerMessage {
   max-width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
 }
 
 .bodyMessage {
@@ -9,6 +12,8 @@
 .bodyMessage p {
   max-width: 100%;
   overflow: hidden;
+
   text-overflow: ellipsis;
+  text-align: left;
   font-size: 1rem;
 }
