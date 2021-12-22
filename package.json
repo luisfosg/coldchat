@@ -55,6 +55,8 @@
     "plugins": [
       "react"
     ],
-    "rules": {}
+    "rules": {
+      "new-cap": "off"
+    }
   }
 }

@@ -27,3 +27,11 @@ body {
 .nes-balloon {
   border-image-repeat: inherit;
 }
+
+.nes-balloon.from-right::before, .nes-balloon.from-right::after {
+  background-color: rgb(199, 218, 212);
+}
+
+.nes-balloon.from-right::after {
+  box-shadow: -4px 0, 4px 0, 4px 4px rgb(199, 218, 212), 0 4px, 8px 4px, 4px 8px, 8px 8px;
+}

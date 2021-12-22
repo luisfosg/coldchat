@@ -7,15 +7,16 @@ const useMessages = () => {
   const [messages, setMessages] = useState([])
 
   const sendMessage = ({ msg }) => {
-    socket.emit('send-message', { msg })
+    socket.emit('send-message', { msg, nickname })
   }
 
   useEffect(() => {
     if (!socket) return
 
     const getMessage = (data) => {
-      setMessages((prevMessages) => [...prevMessages, data.msg])
+      setMessages((prevMessages) => [...prevMessages, data])
     }
+
     socket.on('new message', getMessage)
 
     return () => {

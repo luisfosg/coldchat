@@ -2,15 +2,18 @@ import clsx from 'clsx'
 
 import styles from './Message.module.css'
 
-const Message = ({ msg, isRight = false }) => {
-  const sectionMessage = clsx('message', styles.containerMessage, {
-    '-left': !isRight,
-    '-right': isRight
-  })
+const Message = ({ msg, owner }) => {
+  const sectionMessage = clsx('message',
+    owner ? styles.containerMessageRight : styles.containerMessageLeft,
+    {
+      '-left': !owner,
+      '-right': owner
+    }
+  )
 
   const bodyMessage = clsx('nes-balloon', styles.bodyMessage, {
-    'from-left': !isRight,
-    'from-right': isRight
+    'from-left': !owner,
+    'from-right': owner
   })
 
   return (

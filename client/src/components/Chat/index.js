@@ -1,4 +1,6 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useContext } from 'react'
+
+import SocketContext from 'context/SocketContext'
 import useMessages from 'hooks/useMessages'
 
 import FormMessage from 'components/FormMessage'
@@ -8,6 +10,7 @@ import styles from './Chat.module.css'
 
 const Chat = () => {
   const scrollElement = useRef(null)
+  const { nickname } = useContext(SocketContext)
   const { messages, sendMessage } = useMessages()
 
   useEffect(() => {
@@ -22,8 +25,8 @@ const Chat = () => {
         <section className="message-list">
 
           {
-            messages.map((msg, index) => (
-              <Message key={index} msg={msg} />
+            messages.map((msgInfo, index) => (
+              <Message key={index} msg={msgInfo.msg} owner={nickname === msgInfo.nickname} />
             ))
           }
 

@@ -1,8 +1,19 @@
-.containerMessage {
+.containerMessageLeft {
   max-width: 100%;
 
   display: flex;
   justify-content: flex-start;
+}
+
+.containerMessageRight {
+  max-width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.containerMessageRight .bodyMessage {
+  background-color: rgb(199, 218, 212);
 }
 
 .bodyMessage {
