@@ -54,7 +54,8 @@
       "react"
     ],
     "rules": {
-      "new-cap": "off"
+      "new-cap": "off",
+      "react/react-in-jsx-scope": "off"
     }
   }
 }
