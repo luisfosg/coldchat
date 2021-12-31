@@ -1,6 +1,6 @@
-import User from 'components/User'
+import User from '@/components/User'
 
-import useUsers from 'hooks/useUsers'
+import useUsers from '@/hooks/useUsers'
 
 import styles from './Users.module.css'
 

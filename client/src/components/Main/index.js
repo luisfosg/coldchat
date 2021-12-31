@@ -1,6 +1,6 @@
-import Users from 'components/Users'
-import Profile from 'components/Profile'
-import Menu from 'components/Menu'
+import Users from '@/components/Users'
+import Profile from '@/components/Profile'
+import Menu from '@/components/Menu'
 
 import styles from './Main.module.css'
 

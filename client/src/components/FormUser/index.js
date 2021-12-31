@@ -1,9 +1,9 @@
 import { useState, useContext, useRef } from 'react'
 import clsx from 'clsx'
 
-import SocketContext from 'context/SocketContext'
+import SocketContext from '@/context/SocketContext'
 
-import Avatar from 'components/Avatar'
+import Avatar from '@/components/Avatar'
 
 import styles from './FormUser.module.css'
 

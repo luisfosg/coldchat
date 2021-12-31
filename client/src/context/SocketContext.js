@@ -2,10 +2,10 @@
 import { useState, createContext, useEffect } from 'react'
 import Router from 'next/router'
 
-import { socketUserName } from 'services/sockets'
+import { socketUserName } from '@/services/sockets'
 
-import useSocket from 'hooks/useSocket'
-import useLocalStorage from 'hooks/useLocalStorage'
+import useSocket from '@/hooks/useSocket'
+import useLocalStorage from '@/hooks/useLocalStorage'
 
 const Context = createContext({
   socket: null,

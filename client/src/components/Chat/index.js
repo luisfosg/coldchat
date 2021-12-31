@@ -1,10 +1,10 @@
 import { useRef, useEffect, useContext } from 'react'
 
-import SocketContext from 'context/SocketContext'
-import useMessages from 'hooks/useMessages'
+import SocketContext from '@/context/SocketContext'
+import useMessages from '@/hooks/useMessages'
 
-import FormMessage from 'components/FormMessage'
-import Message from 'components/Message'
+import FormMessage from '@/components/FormMessage'
+import Message from '@/components/Message'
 
 import styles from './Chat.module.css'
 

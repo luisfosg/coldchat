@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 
-import SocketContext from 'context/SocketContext'
+import SocketContext from '@/context/SocketContext'
 
 const useMessages = () => {
   const { socket, nickname } = useContext(SocketContext)

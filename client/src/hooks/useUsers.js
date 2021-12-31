@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 
-import SocketContext from 'context/SocketContext'
+import SocketContext from '@/context/SocketContext'
 
-import { getNicknames } from 'services/sockets'
+import { getNicknames } from '@/services/sockets'
 
 const useUsers = () => {
   const { socket, nickname } = useContext(SocketContext)

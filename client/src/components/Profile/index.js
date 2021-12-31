@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 
-import SocketContext from 'context/SocketContext'
+import SocketContext from '@/context/SocketContext'
 
-import Avatar from 'components/Avatar'
+import Avatar from '@/components/Avatar'
 
 import styles from './Profile.module.css'
 

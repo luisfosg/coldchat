@@ -1,9 +1,9 @@
 import { useEffect, useContext } from 'react'
 import Router from 'next/router'
 
-import SocketContext from 'context/SocketContext'
-import FormUser from 'components/FormUser'
-import Loading from 'components/Loading'
+import SocketContext from '@/context/SocketContext'
+import FormUser from '@/components/FormUser'
+import Loading from '@/components/Loading'
 
 export default function Home () {
   const { nickname, loading } = useContext(SocketContext)
