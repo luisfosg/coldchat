@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, createContext, useEffect } from 'react'
 import Router from 'next/router'
 

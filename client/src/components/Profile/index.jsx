@@ -1,20 +1,20 @@
-import { useContext } from 'react'
+/* import { useContext } from 'react'
 
 import SocketContext from '@/context/SocketContext'
 
-import Avatar from '@/components/Avatar'
+import Avatar from '@/components/Avatar' */
 
 import styles from './Profile.module.css'
 
 const Profile = () => {
-  const { nickname } = useContext(SocketContext)
+  /* const { nickname } = useContext(SocketContext) */
 
   return (
     <div className={styles.containerProfile}>
       <div className={styles.containerAvatar}>
-        <Avatar user={ nickname } />
+        {/* <Avatar user={ nickname } /> */}
       </div>
-      <span>{ nickname }</span>
+      {/* <span>{ nickname }</span> */}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import useTheme from '@/hooks/useTheme'
 import AppLayout from '@/layouts/app-layout'
 
 import { themeLight } from '@/styles/themes'
+import RouterPage from '@/Router'
 
 import 'normalize.css'
 import 'nes.css/css/nes.min.css'
@@ -14,7 +15,7 @@ function App () {
   return (
     <>
       <AppLayout>
-        Hola Mundo
+        <RouterPage />
       </AppLayout>
     </>
   )
