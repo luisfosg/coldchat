@@ -1,14 +1,14 @@
 import { useState, useContext, useRef } from 'react'
 import clsx from 'clsx'
 
-/* import SocketContext from '@/context/SocketContext' */
+import SocketContext from '@/context/SocketContext'
 
 import Avatar from '@/components/Avatar'
 
 import styles from './FormUser.module.css'
 
 const FormUser = () => {
-  /* const { login } = useContext(SocketContext) */
+  const { login } = useContext(SocketContext)
   const [user, setUser] = useState('')
   const elementRef = useRef(null)
 
@@ -18,8 +18,9 @@ const FormUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    /* if (user === '') return
-    login(user, elementRef) */
+    if (user === '') return
+    console.log(login)
+    login(user, elementRef)
   }
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)

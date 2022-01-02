@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react'
-import Router from 'next/router'
+import { useNavigate } from 'react-router-dom'
 
 import { socketUserName } from '@/services/sockets'
 
@@ -12,9 +12,10 @@ const Context = createContext({
 })
 
 export const SocketContextProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true)
-
   const socket = useSocket()
+  const navigate = useNavigate()
+
+  const [loading, setLoading] = useState(true)
   const [nickname, setNickname] = useState('')
 
   const [nicknameStorage, setNicknameStorage] = useLocalStorage('username')
@@ -30,12 +31,12 @@ export const SocketContextProvider = ({ children }) => {
       if (!name) {
         setNicknameStorage('')
         setKey('')
-        return Router.push('/')
+        return navigate('/')
       }
 
       if (newKey) setKey(newKey)
       setNickname(name)
-      Router.push('/chat')
+      navigate('/chat')
     })
   }, [socket])
 
@@ -47,7 +48,7 @@ export const SocketContextProvider = ({ children }) => {
       setNicknameStorage(name)
       setKey(newKey || '')
 
-      Router.push('/chat')
+      navigate('/chat')
     })
   }
 

@@ -5,7 +5,7 @@ const useSocket = () => {
   const [socket, setSocket] = useState(null)
 
   useEffect(() => {
-    const socketIo = io(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:4000')
+    const socketIo = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:4000')
 
     setSocket(socketIo)
 

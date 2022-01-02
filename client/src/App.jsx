@@ -1,3 +1,7 @@
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import { SocketContextProvider } from '@/context/SocketContext'
+
 import useTheme from '@/hooks/useTheme'
 
 import AppLayout from '@/layouts/app-layout'
@@ -13,11 +17,13 @@ function App () {
   useTheme(themeLight)
 
   return (
-    <>
-      <AppLayout>
-        <RouterPage />
-      </AppLayout>
-    </>
+    <Router>
+      <SocketContextProvider>
+        <AppLayout>
+          <RouterPage />
+        </AppLayout>
+      </SocketContextProvider>
+    </Router>
   )
 }
 

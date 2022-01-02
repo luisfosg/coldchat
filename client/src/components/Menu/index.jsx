@@ -1,13 +1,13 @@
-/* import { useContext } from 'react'
+import { useContext } from 'react'
 
-import SocketContext from '@/context/SocketContext' */
+import SocketContext from '@/context/SocketContext'
 
 const Menu = () => {
-  /* const { logout } = useContext(SocketContext) */
+  const { logout } = useContext(SocketContext)
 
   return (
     <>
-      {/* <button type="button" onClick={logout} className="nes-btn is-error">Cerrar Sesión</button> */}
+      <button type="button" onClick={logout} className="nes-btn is-error">Cerrar Sesión</button>
     </>
   )
 }

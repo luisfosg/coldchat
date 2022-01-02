@@ -1,4 +1,4 @@
-@value breakpoints: "styles/breakpoints.module.css";
+@value breakpoints: "@/styles/breakpoints.module.css";
 @value m from breakpoints;
 
 .column1 {

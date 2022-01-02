@@ -1,28 +1,25 @@
-/* import { useEffect, useContext } from 'react'
-import Head from 'next/head'
-import Router from 'next/router'
+import { useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import SocketContext from '@/context/SocketContext' */
+import SocketContext from '@/context/SocketContext'
 
 import Main from '@/components/Main'
 import ChatComponent from '@/components/Chat'
-/* import Loading from '@/components/Loading' */
+import Loading from '@/components/Loading'
 
 import styles from '@/styles/chat.module.css'
 
 const Chat = () => {
-  /* const { nickname, loading } = useContext(SocketContext)
+  const { nickname, loading } = useContext(SocketContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (!nickname || nickname === '') Router.push('/')
+    if (!nickname || nickname === '') navigate('/')
   }, [nickname])
 
-  if (loading || !nickname || nickname === '') return <Loading /> */
+  if (loading || !nickname || nickname === '') return <Loading />
   return (
     <>
-{/*       <Head>
-        <title>Cold Chat | { nickname }</title>
-      </Head> */}
       <section className={styles.wrapper}>
         <Main />
         <div className={styles.column2}>

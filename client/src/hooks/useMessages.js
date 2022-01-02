@@ -1,16 +1,16 @@
 import { useState, useEffect, useContext } from 'react'
 
-/* import SocketContext from '@/context/SocketContext' */
+import SocketContext from '@/context/SocketContext'
 
 const useMessages = () => {
-  /* const { socket, nickname } = useContext(SocketContext) */
+  const { socket, nickname } = useContext(SocketContext)
   const [messages, setMessages] = useState([])
 
   const sendMessage = ({ msg }) => {
-    /* socket.emit('send-message', { msg, nickname }) */
+    socket.emit('send-message', { msg, nickname })
   }
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (!socket) return
 
     const getMessage = (data) => {
@@ -22,7 +22,7 @@ const useMessages = () => {
     return () => {
       socket.off('new message', getMessage)
     }
-  }, [nickname, socket]) */
+  }, [nickname, socket])
 
   return {
     messages,
