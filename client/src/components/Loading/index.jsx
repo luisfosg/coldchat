@@ -1,7 +1,7 @@
 const Loading = () => {
   return (
     <>
-      Cargando...
+      <img src="/assets/loading.svg" alt="Loading..." />
     </>
   )
 }
