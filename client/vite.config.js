@@ -3,11 +3,23 @@ import react from '@vitejs/plugin-react'
 
 import { resolve } from 'path'
 
+const modulesConfig = {
+  generateScopedName: '[name]-[local]-[hash:8]',
+  localsConvention: null
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react()
+  ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-    },
+      '@': resolve(__dirname, './src')
+    }
+  },
+  css: {
+    modules: {
+      modulesConfig
+    }
   }
 })
