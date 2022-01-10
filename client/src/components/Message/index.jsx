@@ -21,7 +21,7 @@ function Urlify ({ text }) {
   })
 }
 
-const Message = ({ msg, owner }) => {
+const Message = ({ msg, user, owner }) => {
   const sectionMessage = clsx('message',
     owner ? styles.containerMessageRight : styles.containerMessageLeft,
     {
@@ -38,6 +38,7 @@ const Message = ({ msg, owner }) => {
   return (
     <section className={ sectionMessage }>
       <div className={ bodyMessage }>
+        { !owner && <span>{ user }</span> }
         <p><Urlify text={msg} /></p>
       </div>
     </section>

@@ -26,7 +26,7 @@ const Chat = () => {
 
           {
             messages.map((msgInfo, index) => (
-              <Message key={index} msg={msgInfo.msg} owner={nickname === msgInfo.nickname} />
+              <Message key={index} msg={msgInfo.msg} user={msgInfo.nickname} owner={nickname === msgInfo.nickname} />
             ))
           }
 

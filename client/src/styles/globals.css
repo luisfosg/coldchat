@@ -15,6 +15,7 @@ body {
 
 *::-webkit-scrollbar {
   width: 10px;
+  height: 5px;
   background-color: var(--white);
   border-radius: 9999px;
 }

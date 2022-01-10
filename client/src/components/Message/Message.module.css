@@ -17,6 +17,7 @@
 }
 
 .bodyMessage {
+  position: relative;
   max-width: 90%;
 }
 
@@ -27,4 +28,22 @@
   text-overflow: ellipsis;
   text-align: left;
   font-size: 1rem;
+}
+
+.bodyMessage span {
+  position: absolute;
+
+  color: cornflowerblue;
+  background-color: white;
+  font-size: 0.3rem;
+  padding: 0 0.2rem;
+  text-align: left;
+
+  width: auto;
+  max-width: 100%;
+
+  left: 5px;
+  top: -15px;
+
+  overflow: auto;
 }
