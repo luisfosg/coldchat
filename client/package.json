@@ -1,7 +1,7 @@
 {
   "name": "coldchat-client",
   "license": "ISC",
-  "private": false,
+  "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
