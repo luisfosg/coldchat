@@ -6,13 +6,13 @@ import useTheme from '@/hooks/useTheme'
 
 import AppLayout from '@/layouts/app-layout'
 
-import { themeDark } from '@/styles/themes'
+import { themeLight } from '@/styles/themes'
 import RouterPage from '@/Router'
 
 import '@/styles/globals.css'
 
 function App () {
-  useTheme(themeDark)
+  useTheme(themeLight)
 
   return (
     <Router>
