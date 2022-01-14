@@ -1,7 +1,9 @@
+import img from '#/assets/loading.svg'
+
 const Loading = () => {
   return (
     <>
-      <img src="/assets/loading.svg" alt="Loading..." />
+      <img src={img} alt="Loading..." />
     </>
   )
 }
