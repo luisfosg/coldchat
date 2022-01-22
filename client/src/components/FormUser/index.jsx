@@ -19,7 +19,6 @@ const FormUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (user === '') return
-    console.log(login)
     login(user, elementRef)
   }
 

@@ -1,7 +1,10 @@
 import { useContext } from 'react'
 import clsx from 'clsx'
 
+import useTheme from '@/hooks/useTheme'
+
 import SocketContext from '@/context/SocketContext'
+import { themeLight, themeDark } from '@/styles/themes'
 
 import styles from './Menu.module.css'
 
@@ -10,9 +13,12 @@ const buttonLogout = clsx(buttonClass, 'is-error')
 const buttonDarkmode = clsx(buttonClass, 'is-warning')
 
 const Menu = () => {
+  const { theme, setTheme } = useTheme()
   const { logout } = useContext(SocketContext)
 
-  const handleDarkmode = () => {}
+  const handleDarkmode = () => {
+    setTheme(theme.name === themeLight.name ? themeDark : themeLight)
+  }
 
   return (
     <>
