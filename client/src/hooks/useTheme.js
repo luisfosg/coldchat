@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import { themeLight } from '@/styles/themes'
+import { themeLight, themeDark } from '@/styles/themes'
 
 const useTheme = () => {
-  const [theme, setCurrentTheme] = useState(themeLight)
+  const [theme, setCurrentTheme] = useState(() => {
+    const themeFromStorage = localStorage.getItem('theme')
+    return themeFromStorage === 'dark' ? themeDark : themeLight
+  })
 
   useEffect(
     () => {
@@ -15,6 +18,7 @@ const useTheme = () => {
   )
 
   const setTheme = (theme) => {
+    localStorage.setItem('theme', theme.name)
     setCurrentTheme(theme)
   }
 
