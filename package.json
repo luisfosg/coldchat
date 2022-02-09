@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/LuisFOsG/ColdChat#readme",
   "devDependencies": {
-    "@s-ui/mono": "2.18.0",
-    "eslint": "8.6.0",
+    "@s-ui/mono": "2.19.0",
+    "eslint": "8.8.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-node": "11.1.0",
