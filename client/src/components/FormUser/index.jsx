@@ -2,6 +2,7 @@ import { useState, useContext, useRef } from 'react'
 import clsx from 'clsx'
 
 import SocketContext from '@/context/SocketContext'
+import useTheme from '@/hooks/useTheme'
 
 import Avatar from '@/components/Avatar'
 
@@ -9,6 +10,8 @@ import styles from './FormUser.module.css'
 
 const FormUser = () => {
   const { login } = useContext(SocketContext)
+  const { theme } = useTheme()
+
   const [user, setUser] = useState('')
   const elementRef = useRef(null)
 
@@ -23,7 +26,7 @@ const FormUser = () => {
   }
 
   const styleButton = clsx('nes-btn is-primary', styles.buttonForm)
-  const styleInput = clsx('nes-input')
+  const styleInput = clsx('nes-input', theme.name === 'dark' ? 'is-dark' : '')
   const isButtonDisabled = user === ''
 
   return (

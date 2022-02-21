@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { SocketContextProvider } from '@/context/SocketContext'
+import { ThemeContextProvider } from '@/context/ThemeContext'
 
 import AppLayout from '@/layouts/app-layout'
 
@@ -11,11 +12,17 @@ import '@/styles/globals.css'
 function App () {
   return (
     <Router>
+
       <SocketContextProvider>
-        <AppLayout>
-          <RouterPage />
-        </AppLayout>
+        <ThemeContextProvider>
+
+          <AppLayout>
+            <RouterPage />
+          </AppLayout>
+
+        </ThemeContextProvider>
       </SocketContextProvider>
+
     </Router>
   )
 }

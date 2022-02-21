@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 
-import { themeLight, themeDark } from '@/styles/themes'
+import ThemeContext from '@/context/ThemeContext'
 
 const useTheme = () => {
-  const [theme, setCurrentTheme] = useState(() => {
-    const themeFromStorage = localStorage.getItem('theme')
-    return themeFromStorage === 'dark' ? themeDark : themeLight
-  })
-
-  useEffect(
-    () => {
-      for (const key in theme.colors) {
-        document.documentElement.style.setProperty(`--${key}`, theme.colors[key])
-      }
-    },
-    [theme]
-  )
+  const { theme, setCurrentTheme } = useContext(ThemeContext)
 
   const setTheme = (theme) => {
     localStorage.setItem('theme', theme.name)
